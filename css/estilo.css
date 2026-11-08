@@ -353,8 +353,9 @@ input:invalid.tocado, .campo-erro input, .campo-erro select { border-color: var(
 .resultado h3 { margin-bottom: 12px; }
 .resultado-passo { margin-top: 16px; }
 .aviso-urgencia {
-  border-left: 3px solid var(--erro);
-  padding-left: 14px;
+  border: 1px solid var(--erro);
+  border-radius: 4px;
+  padding: 12px 14px;
   color: var(--grafite);
 }
 .nota { font-size: 15px; color: #4A4F57; margin-bottom: 8px; }
