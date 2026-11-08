@@ -51,7 +51,7 @@ O estudo completo está em [`docs/identidade.md`](docs/identidade.md). O resumo:
 - **Ideia:** a mesa de trabalho de uma pessoa que lê e anota, não um escritório de mármore. Papel, caneta de tinta azul e um marca-texto amarelo.
 - **Paleta:** Papel `#F6F4EF` (fundo), Papel escuro `#ECE9E1` (blocos de apoio), Grafite `#1E2228` (texto), Tinta azul `#27456B` (tudo que é clicável), Marca-texto `#F2DC6B` (um grifo por tela, sempre atrás de texto), Linha `#CFCBC1` (bordas), Verde `#2F6B4F` (confirmação). Sem gradiente e sem sombra.
 - **Fontes:** Newsreader (serifa de leitura, títulos) e Public Sans (sans clara, corpo e formulários). As duas são SIL OFL e estão na pasta `fonts/` com as licenças. Nenhuma fonte vem de fora.
-- **Imagem forte:** uma folha de papel desenhada em CSS, com linhas pautadas, um trecho grifado e uma caneta em SVG. Nenhuma foto.
+- **Imagem forte:** uma foto de uma mesa de trabalho vista de cima, com folhas anotadas, caneta-tinteiro azul, óculos e marca-texto (`img/hero.webp`). **A foto foi gerada por IA no Canva e é só ilustrativa**: a mesa e as anotações não existem. O texto das folhas está desfocado de propósito.
 - **Movimento:** só um, na abertura: o grifo amarelo "passa" sobre o trecho do título. Com `prefers-reduced-motion`, ele já aparece pronto.
 
 ## Como funciona por dentro
@@ -69,7 +69,7 @@ O site é um conjunto de arquivos estáticos que o navegador baixa e executa soz
 - `Content-Security-Policy` por meta tag: `default-src 'self'`, `connect-src 'none'`, sem script ou estilo inline.
 - Acessibilidade: contraste AA em todas as combinações (medido), foco visível de 3px, `fieldset` e `legend` nos formulários, `aria-pressed` nos dias e horários, `aria-live` nos resultados, link "Pular para o conteúdo", `lang="pt-BR"`, `prefers-reduced-motion` respeitado.
 - Celular primeiro: uma coluna até 760px, menu recolhido, botões com 44px ou mais de altura, sem rolagem horizontal em 320px.
-- Arquivos: `index.html` (página única com âncoras), `404.html` (caminhos absolutos `/advogado/`), `css/estilo.css`, `js/app.js`, `fonts/`, `favicon.svg`, `robots.txt`, `sitemap.xml`, `google20db0e080e71c701.html`, `docs/` (identidade, vistoria e capturas), `tests/site.cjs`.
+- Arquivos: `index.html` (página única com âncoras), `404.html` (caminhos absolutos `/advogado/`), `css/estilo.css`, `js/app.js`, `fonts/`, `favicon.svg`, `img/hero.webp` (foto da abertura), `robots.txt`, `sitemap.xml`, `google20db0e080e71c701.html`, `docs/` (identidade, vistoria e capturas), `tests/site.cjs`.
 
 ## Como rodar no seu computador
 

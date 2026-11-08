@@ -59,9 +59,19 @@ Regra de peso: um peso por família por tela além do regular. Nada de negrito d
 
 ## Imagem forte
 
-O hero é uma **folha de papel desenhada em CSS e SVG**: um bloco de Papel escuro, levemente girado, com linhas pautadas e três parágrafos de "texto" representados por traços (nenhum texto falso em imagem). Sobre ele, um trecho real do posicionamento aparece grifado com o marca-texto amarelo, e uma caneta de tinta azul em SVG repousa no canto. A mensagem é: aqui alguém lê o seu caso de verdade, linha por linha.
+O hero é uma **foto gerada por IA (Canva)**, ilustrativa: uma mesa de trabalho vista de cima, em tom de papel, com folhas pautadas cheias de anotações (desfocadas de propósito, para não haver texto falso legível), uma caneta-tinteiro azul-marinho com a tampa ao lado, óculos de armação escura, um marca-texto amarelo e um caderno preto no canto. Tinta azul, papel e marca-texto são exatamente os três materiais da identidade, e a mensagem continua a mesma: aqui alguém lê o seu caso de verdade, linha por linha. Não há pessoas.
 
-Fora do hero, nenhuma imagem decorativa. Os ícones das áreas são traços simples em SVG (uma casa com duas pessoas, uma nota fiscal), em tinta azul, com `aria-hidden`.
+O contêiner tem proporção fixa de 4:3, borda de 1 px na cor Linha e cantos de 4 px, como os campos e botões do site. Enquanto a foto carrega, ele mostra a cor média dela.
+
+O grifo amarelo do título continua sendo o acento oficial da tela e o único movimento da abertura; o marca-texto da foto apenas ecoa essa cor. Fora do hero, nenhuma imagem decorativa. Os ícones das áreas são traços simples em SVG (uma casa com duas pessoas, uma nota fiscal), em tinta azul, com `aria-hidden`.
+
+### Foto do hero
+
+- **Arquivo**: `img/hero.webp`, 1440 x 1080 px, proporção 4:3.
+- **Origem**: gerada por IA no Canva. O README e este estudo avisam que é ilustrativa.
+- **Prompt resumido**: "Mesa de trabalho vista de cima, superfície em tom de papel marfim. Folhas pautadas com anotações manuscritas desfocadas, uma caneta-tinteiro azul-marinho com detalhes dourados sobre elas, a tampa da caneta ao lado, óculos de armação escura, um marca-texto amarelo e um caderno de capa preta no canto. Luz natural suave de janela, sombras longas e macias. Estilo editorial de site premium, sem texto legível, sem pessoas, proporção 4:3."
+- **Texto alternativo**: descreve a mesa, as folhas, a caneta, os óculos, o marca-texto e o caderno.
+- **Texto do hero**: fica ao lado da foto no computador e abaixo dela no celular, nunca por cima. O contraste do texto é o da página (Grafite sobre Papel) e não depende da foto.
 
 ## Movimento
 

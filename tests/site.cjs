@@ -2,7 +2,7 @@
    Como rodar, na raiz do projeto:  node tests/site.cjs
    O script sobe um servidor local (python3 -m http.server 8302, na pasta acima, para o site
    responder em /advogado/ como no GitHub Pages), abre o site
-   em três tamanhos (1280x900, iPhone 13 e 320px), exercita as quatro funções,
+   em três tamanhos (1280x900, iPhone 13 e 320px), exercita as quatro funções, confere a foto do hero (carregou, 4:3, sem texto por cima),
    confere console, rolagem horizontal e textos cortados, e salva capturas PNG em
    CAP_DIR (quando a variável CAPTURAS=1; depois convertidas para webp em docs/) e PNGs na pasta indicada em SHOTS_DIR. */
 "use strict";
@@ -11,7 +11,7 @@ const { spawn } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 
-const PORTA = 8302;
+const PORTA = process.env.PORTA || 8302;
 const RAIZ = path.resolve(__dirname, "..");
 const SLUG = path.basename(RAIZ);
 const URL = `http://127.0.0.1:${PORTA}/${SLUG}/`;
@@ -53,6 +53,33 @@ async function verificacoesBasicas(page, rotulo) {
     return out;
   });
   checa(cortados.length === 0, `${rotulo}: textos cortados ou fora da tela: ${cortados.join(" | ")}`);
+}
+
+// Foto do hero: carregou, tem a proporção 4:3 e o texto do hero não encosta nela (legibilidade).
+async function checarHero(page, contSel) {
+  return page.evaluate((contSel) => {
+    const img = document.querySelector("img.hero-foto");
+    if (!img) return { existe: false };
+    const r = img.getBoundingClientRect();
+    const caixa = img.parentElement.getBoundingClientRect();
+    const raiz = document.querySelector(contSel) || document;
+    let sobreposto = 0;
+    for (const t of raiz.querySelectorAll("h1, p, a, dl, dt, dd")) {
+      const b = t.getBoundingClientRect();
+      if (!b.width || !b.height) continue;
+      const w = Math.min(b.right, r.right) - Math.max(b.left, r.left);
+      const h = Math.min(b.bottom, r.bottom) - Math.max(b.top, r.top);
+      if (w > 1 && h > 1) sobreposto++;
+    }
+    return {
+      existe: true,
+      carregou: img.complete && img.naturalWidth === 1440 && img.naturalHeight === 1080,
+      alt: (img.getAttribute("alt") || "").length > 20,
+      proporcao: Math.round((caixa.width / caixa.height) * 100) / 100,
+      cabe: r.left >= -1 && r.right <= document.documentElement.clientWidth + 1,
+      sobreposto
+    };
+  }, contSel);
 }
 
 async function capturar(page, seletor, nome) {
@@ -166,6 +193,11 @@ async function testaFuncoes(page, rotulo, capturas, sufixo) {
       await page.goto(URL, { waitUntil: "networkidle" });
       await espera(1300);
       await verificacoesBasicas(page, c.nome + " (abertura)");
+      const hero = await checarHero(page, ".hero-texto");
+      checa(hero.existe && hero.carregou, `${c.nome}: a foto do hero não carregou (1440x1080)`);
+      checa(hero.existe && hero.alt, `${c.nome}: a foto do hero está sem alt descritivo`);
+      checa(hero.existe && Math.abs(hero.proporcao - 1.33) < 0.02, `${c.nome}: contêiner do hero fora de 4:3 (${hero.proporcao})`);
+      checa(hero.existe && hero.cabe && hero.sobreposto === 0, `${c.nome}: a foto sai da tela ou há texto do hero sobre ela (${hero.sobreposto} sobreposições)`);
 
       /* Teclado: o primeiro Tab vai para o link "Pular para o conteúdo" */
       await page.keyboard.press("Tab");

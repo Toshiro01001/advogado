@@ -215,55 +215,22 @@ a:hover { color: var(--tinta-forte); }
 .hero-apoio { font-size: 19px; max-width: 34em; }
 .hero-acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 
-.hero-figura { position: relative; min-height: 380px; display: flex; justify-content: center; }
-.folha {
-  width: min(100%, 320px);
-  min-height: 400px;
-  background: var(--papel-escuro);
+.hero-figura {
+  aspect-ratio: 4 / 3;
   border: 1px solid var(--linha);
-  padding: 56px 32px 40px;
-  transform: rotate(-2.5deg);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #C6BFB4; /* média da foto: aparece enquanto ela carrega */
 }
-.folha::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #D9B9B4;
-}
-.folha-linha { display: block; height: 3px; background: #9DA3AC; border-radius: 2px; width: 100%; }
-.folha-linha-curta { width: 45%; }
-.folha-linha-media { width: 72%; }
-.folha-linha-grifada {
-  background: #6E7580;
-  box-shadow: 0 0 0 6px var(--marca-texto);
-  width: 88%;
-}
-.folha-espaco { display: block; height: 10px; }
-.caneta {
-  position: absolute;
-  right: 4%;
-  bottom: -24px;
-  transform: rotate(28deg);
-  width: 44px;
-  height: auto;
+.hero-foto { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-foto { animation: foto-entra 800ms ease-out both; }
+  @keyframes foto-entra { from { opacity: 0; } to { opacity: 1; } }
 }
 
 @media (max-width: 900px) {
-  .hero-grade { grid-template-columns: 1fr; gap: 40px; }
-  .hero-figura { min-height: 0; justify-content: flex-start; }
-  .folha { min-height: 300px; width: min(100%, 280px); padding: 40px 24px 32px; }
-  .caneta { right: auto; left: 240px; bottom: -8px; }
-}
-@media (max-width: 420px) {
-  .caneta { left: auto; right: 0; bottom: -16px; width: 36px; }
-  .folha { width: min(100%, 240px); }
+  .hero-grade { grid-template-columns: 1fr; gap: 32px; }
+  .hero-figura { order: -1; } /* no celular a foto abre a página, o texto vem logo abaixo */
 }
 
 /* Seções */
