@@ -20,3 +20,18 @@ Data: 08/11/2026. Site estático, sem servidor próprio, publicado no GitHub Pag
 - O conteúdo do `localStorage` fica legível para quem usar o mesmo navegador e perfil. Como os dados são digitados pelo próprio visitante em uma simulação, o impacto é baixo, e o botão de apagar está visível.
 - A calculadora de prazos é uma simulação: usa feriados nacionais e recesso forense, mas não feriados estaduais e municipais nem suspensões de expediente. O site diz isso ao lado do resultado para ninguém tratar a conta como oficial.
 - Sem `Subresource Integrity` porque não há recurso externo a proteger.
+
+## Revisão de 08/11/2026 (leva final de design)
+
+Revisão feita depois de aplicar os design systems da leva final e encaixar as fotos geradas por IA no Canva.
+
+- **CSP:** a política do `index.html` é a mesma de antes da leva (conferida linha a linha). Continua sem `unsafe-inline`, sem `unsafe-eval` e sem origem externa.
+- **Script e estilo inline:** nenhum `<script>` inline, nenhum `<style>` e nenhum atributo `style` nas páginas. Os efeitos novos mudam só classes, `textContent` e propriedades CSS pelo CSSOM, que a CSP permite.
+- **Recursos externos:** nenhum script, fonte, imagem ou folha de estilo de fora. Os únicos links externos são de navegação comum (mileumalinhas.com.br e o perfil do GitHub).
+- **Bibliotecas:** nenhuma entrou. Movimento, vidro, contadores e revelação ao rolar são CSS e JavaScript escritos à mão, desligados com `prefers-reduced-motion`.
+- **innerHTML:** nenhum uso no JavaScript.
+- **eval e Function:** nenhum uso.
+- **Armazenamento:** `localStorage` continua só com o que já existia (`cm-consulta`), sem chave nova nesta leva.
+- **Dados pessoais:** nenhum dado pessoal real entrou. Pessoas, empresas, telefones e endereços seguem fictícios. As fotos não retratam pessoas reais.
+- **Imagens:** arquivos webp locais em `img/`, com `width`/`height`, `loading="lazy"` e `decoding="async"`. Nenhuma é carregada de outro domínio.
+- **Testes:** `tests/site.cjs` passa em 1280x900, iPhone 13 e 320px, sem erro de console e sem rolagem horizontal.
