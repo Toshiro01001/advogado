@@ -52,7 +52,23 @@ O estudo completo está em [`docs/identidade.md`](docs/identidade.md). O resumo:
 - **Paleta:** Papel `#F6F4EF` (fundo), Papel escuro `#ECE9E1` (blocos de apoio), Grafite `#1E2228` (texto), Tinta azul `#27456B` (tudo que é clicável), Marca-texto `#F2DC6B` (um grifo por tela, sempre atrás de texto), Linha `#CFCBC1` (bordas), Verde `#2F6B4F` (confirmação). Sem gradiente e sem sombra.
 - **Fontes:** Newsreader (serifa de leitura, títulos) e Public Sans (sans clara, corpo e formulários). As duas são SIL OFL e estão na pasta `fonts/` com as licenças. Nenhuma fonte vem de fora.
 - **Imagem forte:** uma foto de uma mesa de trabalho vista de cima, com folhas anotadas, caneta-tinteiro azul, óculos e marca-texto (`img/hero.webp`). **A foto foi gerada por IA no Canva e é só ilustrativa**: a mesa e as anotações não existem. O texto das folhas está desfocado de propósito.
-- **Movimento:** só um, na abertura: o grifo amarelo "passa" sobre o trecho do título. Com `prefers-reduced-motion`, ele já aparece pronto.
+- **Superfícies (leva final):** a página clara segue o padrão de cartões e pílulas com anel translúcido e sombra longa, olhos em serifa itálica, títulos com segundo tom e fundo com raios de luz e grão; Quem atende e o rodapé viram faixas em Tinta azul com cartões de vidro. A seção "Design systems aplicados (leva final)" de `docs/identidade.md` lista cada componente.
+- **Movimento:** na abertura, o grifo amarelo "passa" sobre o trecho do título e, logo depois, aba, olho, apoio, botões e foto sobem em escada; ao rolar, cada seção revela e as palavras do texto de Quem atende acendem. Com `prefers-reduced-motion`, tudo já aparece pronto.
+
+### Fotos
+
+**Todas as fotos do site foram geradas por IA no Canva e são apenas ilustrativas.** Não existem a advogada, a sala, a porta nem os documentos retratados; o texto que aparece nelas está desfocado de propósito. Os arquivos abaixo são as versões finais, exportadas do Canva e convertidas para webp na proporção certa.
+
+| Arquivo | Proporção | Onde aparece |
+|---|---|---|
+| `img/hero.webp` | 4:3 | abertura (foto final) |
+| `img/advogada-perfil.webp` | 3:4 | Quem atende, acima do texto |
+| `img/porta-escritorio.webp` | 4:3 | Quem atende, acima do endereço |
+| `img/sala-consulta.webp` | 4:3 | Consulta inicial, acima dos horários |
+| `img/area-familia.webp` | 1:1 | cartão Família (96px, 64px no celular) |
+| `img/area-consumidor.webp` | 1:1 | cartão Consumidor (96px, 64px no celular) |
+| `img/agenda-prazos.webp` | 3:2 | Prazos, ao lado do formulário |
+| `img/leitura-artigos.webp` | 16:9 | Artigos, ao lado da busca |
 
 ## Como funciona por dentro
 
@@ -69,7 +85,7 @@ O site é um conjunto de arquivos estáticos que o navegador baixa e executa soz
 - `Content-Security-Policy` por meta tag: `default-src 'self'`, `connect-src 'none'`, sem script ou estilo inline.
 - Acessibilidade: contraste AA em todas as combinações (medido), foco visível de 3px, `fieldset` e `legend` nos formulários, `aria-pressed` nos dias e horários, `aria-live` nos resultados, link "Pular para o conteúdo", `lang="pt-BR"`, `prefers-reduced-motion` respeitado.
 - Celular primeiro: uma coluna até 760px, menu recolhido, botões com 44px ou mais de altura, sem rolagem horizontal em 320px.
-- Arquivos: `index.html` (página única com âncoras), `404.html` (caminhos absolutos `/advogado/`), `css/estilo.css`, `js/app.js`, `fonts/`, `favicon.svg`, `img/hero.webp` (foto da abertura), `robots.txt`, `sitemap.xml`, `google20db0e080e71c701.html`, `docs/` (identidade, vistoria e capturas), `tests/site.cjs`.
+- Arquivos: `index.html` (página única com âncoras), `404.html` (caminhos absolutos `/advogado/`), `css/estilo.css`, `js/app.js`, `fonts/`, `favicon.svg`, `img/` (fotos, todas geradas por IA no Canva e ilustrativas), `robots.txt`, `sitemap.xml`, `google20db0e080e71c701.html`, `docs/` (identidade, vistoria e capturas), `tests/site.cjs`.
 
 ## Como rodar no seu computador
 
@@ -88,7 +104,7 @@ cd advogado
 node tests/site.cjs
 ```
 
-O script usa Playwright, sobe o servidor sozinho na porta 8302 e testa em 1280x900, iPhone 13 e 320px: abertura sem erro de console, sem rolagem horizontal e sem texto cortado; menu do celular; triagem; agenda (validação, máscara do telefone, gravação e apagamento no `localStorage`); prazos (três cenários com datas conhecidas); busca nos artigos; e a página 404. Com `CAPTURAS=1` ele também salva as capturas em PNG na pasta `CAP_DIR`.
+O script usa Playwright, sobe o servidor sozinho na porta 8302 e testa em 1280x900, iPhone 13 e 320px: abertura sem erro de console, sem rolagem horizontal e sem texto cortado; menu do celular; triagem; agenda (validação, máscara do telefone, gravação e apagamento no `localStorage`); prazos (três cenários com datas conhecidas); busca nos artigos; e a página 404. Com `CAPTURAS=1` ele também salva as capturas em PNG na pasta `CAP_DIR`. Com `PORTA=8402` (ou outra) ele usa outra porta.
 
 ## Segurança
 

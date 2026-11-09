@@ -101,12 +101,85 @@
   /* ------------------------------------------------------------------
      Abertura: o grifo passa sobre o trecho do título
      ------------------------------------------------------------------ */
+  var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   (function abertura() {
-    var grifo = $(".hero .grifo");
+    var grifo = $(".hero .grifo"), hero = $(".hero");
     if (!grifo) return;
-    var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduzido) { grifo.classList.add("pronto"); return; }
+    /* A classe "anima" no <html> liga os estados iniciais do movimento (só com JS e sem reduced-motion) */
+    document.documentElement.classList.add("anima");
     window.setTimeout(function () { grifo.classList.add("pronto"); }, 400);
+    /* Depois do grifo (400ms de espera + 700ms de passagem), aba, olho, apoio, botões e foto sobem em escada */
+    window.setTimeout(function () { if (hero) hero.classList.add("pronto"); }, 1100);
+  })();
+
+  /* ------------------------------------------------------------------
+     Revelação ao rolar: cada .miolo de seção entra quando cruza 12% da tela
+     ------------------------------------------------------------------ */
+  (function revelacao() {
+    if (reduzido || !("IntersectionObserver" in window)) return;
+    var alvos = $$(".secao .miolo");
+    if (!alvos.length) return;
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("visivel"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    alvos.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      /* O que já está na tela na abertura não espera */
+      if (r.top < window.innerHeight && r.bottom > 0) return;
+      el.classList.add("revela");
+      io.observe(el);
+    });
+  })();
+
+  /* ------------------------------------------------------------------
+     Lead de "Quem atende": cada palavra acende de 20% para 100% conforme a seção entra na tela
+     ------------------------------------------------------------------ */
+  (function leadPalavras() {
+    var lead = $(".sobre-lead");
+    if (!lead || reduzido) return;
+    var texto = lead.textContent;
+    var partes = texto.split(/(\s+)/);
+    lead.textContent = "";
+    var palavras = [];
+    partes.forEach(function (parte) {
+      if (!parte) return;
+      if (/^\s+$/.test(parte)) { lead.appendChild(document.createTextNode(parte)); return; }
+      var span = document.createElement("span");
+      span.className = "palavra";
+      span.textContent = parte;
+      lead.appendChild(span);
+      palavras.push(span);
+    });
+    var pedido = false;
+    function atualizar() {
+      pedido = false;
+      var r = lead.getBoundingClientRect();
+      var alt = window.innerHeight || document.documentElement.clientHeight;
+      /* Progresso 0 quando o topo do parágrafo entra pela base da tela; 1 quando chega a 35% da altura */
+      var progresso = (alt - r.top) / (alt * 0.65);
+      if (progresso < 0) progresso = 0;
+      if (progresso > 1) progresso = 1;
+      var n = palavras.length;
+      palavras.forEach(function (p, i) {
+        var limiar = i / n, janela = 1 / n * 3;
+        var local = (progresso - limiar) / janela;
+        if (local < 0) local = 0;
+        if (local > 1) local = 1;
+        p.style.opacity = String(0.2 + 0.8 * local);
+      });
+    }
+    function agendar() {
+      if (pedido) return;
+      pedido = true;
+      window.requestAnimationFrame(atualizar);
+    }
+    window.addEventListener("scroll", agendar, { passive: true });
+    window.addEventListener("resize", agendar);
+    atualizar();
   })();
 
   /* ------------------------------------------------------------------
