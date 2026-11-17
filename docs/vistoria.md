@@ -35,3 +35,18 @@ Revisão feita depois de aplicar os design systems da leva final e encaixar as f
 - **Dados pessoais:** nenhum dado pessoal real entrou. Pessoas, empresas, telefones e endereços seguem fictícios. As fotos não retratam pessoas reais.
 - **Imagens:** arquivos webp locais em `img/`, com `width`/`height`, `loading="lazy"` e `decoding="async"`. Nenhuma é carregada de outro domínio.
 - **Testes:** `tests/site.cjs` passa em 1280x900, iPhone 13 e 320px, sem erro de console e sem rolagem horizontal.
+
+## Revisão de 17/11/2026 (criação premium)
+
+Revisão feita depois de refazer o site a partir do modelo Cláusula (ProfitizeBuild), adaptado para HTML, CSS e JavaScript puros.
+
+- **CSP:** a política do `index.html` e do `404.html` não mudou. Continua sem `unsafe-inline`, sem `unsafe-eval`, sem origem externa e com `connect-src 'none'`.
+- **Bibliotecas:** nenhuma. O modelo original usa GSAP e Lenis; aqui o movimento foi reescrito à mão em `js/premium.js` (grão, topo que some, títulos por máscara, rótulos que embaralham, áreas presas à rolagem e a folha anotada). Com `prefers-reduced-motion` nada anima.
+- **Script e estilo inline:** nenhum `<script>` inline, nenhum `<style>` e nenhum atributo `style` no HTML. O `premium.js` muda classes, `textContent` e propriedades pelo CSSOM. O grão é um ladrilho de ruído desenhado num `<canvas>` e usado como fundo por `data:`, que o `img-src` já permitia.
+- **innerHTML, eval e Function:** nenhum uso.
+- **Fontes:** Inter Tight e IBM Plex Mono entraram como arquivos locais em `fonts/`, com as licenças SIL OFL ao lado. Newsreader continua, só na folha.
+- **Imagens:** as fotos passaram a versões em preto e branco (`img/pb-*.webp`), feitas a partir das que já existiam. Nenhuma retrata pessoa real. As marcas da assinatura M1L! | RTJ estão em `img/marca/`.
+- **Armazenamento:** nenhuma chave nova. `localStorage` segue só com `cm-consulta`.
+- **Dados pessoais:** nenhum dado real. O documento da seção "Leitura" é fictício e está identificado como exemplo.
+- **OAB:** sem promessa de resultado, sem preço de honorários e sem depoimento. A tabela das áreas fala só de consulta inicial, forma de atendimento e proposta por escrito.
+- **Testes:** `tests/site.cjs` passa em 1280x900, iPhone 13 e 320px, com as quatro funções, sem erro de console e sem rolagem horizontal.

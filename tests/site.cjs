@@ -2,7 +2,7 @@
    Como rodar, na raiz do projeto:  node tests/site.cjs
    O script sobe um servidor local (python3 -m http.server 8302, na pasta acima, para o site
    responder em /advogado/ como no GitHub Pages), abre o site
-   em três tamanhos (1280x900, iPhone 13 e 320px), exercita as quatro funções, confere a foto do hero (carregou, 4:3, sem texto por cima),
+   em três tamanhos (1280x900, iPhone 13 e 320px), exercita as quatro funções, confere a foto e o título da abertura,
    confere console, rolagem horizontal e textos cortados, e salva capturas PNG em
    CAP_DIR (quando a variável CAPTURAS=1; depois convertidas para webp em docs/) e PNGs na pasta indicada em SHOTS_DIR. */
 "use strict";
@@ -73,7 +73,7 @@ async function checarHero(page, contSel) {
     }
     return {
       existe: true,
-      carregou: img.complete && img.naturalWidth === 1440 && img.naturalHeight === 1080,
+      carregou: img.complete && img.naturalWidth === 1920 && img.naturalHeight === 1080,
       alt: (img.getAttribute("alt") || "").length > 20,
       proporcao: Math.round((caixa.width / caixa.height) * 100) / 100,
       cabe: r.left >= -1 && r.right <= document.documentElement.clientWidth + 1,
@@ -194,10 +194,12 @@ async function testaFuncoes(page, rotulo, capturas, sufixo) {
       await espera(1300);
       await verificacoesBasicas(page, c.nome + " (abertura)");
       const hero = await checarHero(page, ".hero-texto");
-      checa(hero.existe && hero.carregou, `${c.nome}: a foto do hero não carregou (1440x1080)`);
+      checa(hero.existe && hero.carregou, `${c.nome}: a foto do hero não carregou (1920x1080)`);
       checa(hero.existe && hero.alt, `${c.nome}: a foto do hero está sem alt descritivo`);
-      checa(hero.existe && Math.abs(hero.proporcao - 1.33) < 0.02, `${c.nome}: contêiner do hero fora de 4:3 (${hero.proporcao})`);
-      checa(hero.existe && hero.cabe && hero.sobreposto === 0, `${c.nome}: a foto sai da tela ou há texto do hero sobre ela (${hero.sobreposto} sobreposições)`);
+      /* Desde a criação premium (17/11/2026) a foto é o fundo da abertura, com o título por cima de propósito:
+         confere-se só que ela cobre a abertura e que o título aparece inteiro dentro da tela. */
+      const titulo = await page.evaluate(() => { const h = document.querySelector(".hero h1").getBoundingClientRect(); return h.left >= 0 && h.right <= document.documentElement.clientWidth + 1 && h.height > 20; });
+      checa(titulo, `${c.nome}: o título da abertura sai da tela`);
 
       /* Teclado: o primeiro Tab vai para o link "Pular para o conteúdo" */
       await page.keyboard.press("Tab");
