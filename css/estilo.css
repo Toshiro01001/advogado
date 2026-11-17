@@ -8,7 +8,7 @@
 @font-face { font-family: "Newsreader"; font-weight: 200 800; font-display: swap; src: url(../fonts/newsreader-latin-opsz-normal.woff2) format("woff2"); }
 :root {
   --fundo: #0b0b0a; --superficie: #141412; --fio: #2a2926; --fio-foto: rgba(239, 237, 230, .32);
-  --texto: #efede6; --cinza: #9a988f; --apagado: #55534e;
+  --texto: #efede6; --cinza: #9a988f; --apagado: #807e77;
   --papel: #f1eee6; --tinta-preta: #1a1916; --tinta: #27456b; --grifo: #f2dc6b; --sinal: #e0705a;
   --sans: "Inter Tight", "Helvetica Neue", Arial, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; --serifa: "Newsreader", Georgia, serif;
   --margem: clamp(20px, 5.4vw, 84px); --nav: 84px; --curva: cubic-bezier(.22, .8, .24, 1);

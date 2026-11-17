@@ -50,3 +50,7 @@ Revisão feita depois de refazer o site a partir do modelo Cláusula (ProfitizeB
 - **Dados pessoais:** nenhum dado real. O documento da seção "Leitura" é fictício e está identificado como exemplo.
 - **OAB:** sem promessa de resultado, sem preço de honorários e sem depoimento. A tabela das áreas fala só de consulta inicial, forma de atendimento e proposta por escrito.
 - **Testes:** `tests/site.cjs` passa em 1280x900, iPhone 13 e 320px, com as quatro funções, sem erro de console e sem rolagem horizontal.
+
+### Raio-X de 17/11/2026 (ProfitizeBuild)
+
+Nota 75 de 100 logo depois de publicar (velocidade 98, celular 87, SEO 83). Corrigi os três pontos que valem para uma vitrine fictícia: o contraste dos textos apagados (agora 4,9:1 sobre o fundo), a imagem de compartilhamento (`img/og.jpg`, 1200x630, com as marcações `og:`) e a descrição, que passou a ter menos de 155 caracteres. Não apliquei Pixel, Analytics, política de privacidade, termos, CNPJ nem domínio próprio: o site não coleta nem envia dado nenhum (`connect-src 'none'`), e a pessoa e o escritório são fictícios.
