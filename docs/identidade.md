@@ -1,5 +1,17 @@
 # Identidade visual: Clara Montenegro, Advogada
 
+> **Atualização de 17/11/2026, criação premium.** O site foi refeito a partir do modelo Cláusula (ProfitizeBuild). O conceito continua o mesmo, a mesa de quem lê e anota, mas a forma mudou:
+>
+> - **Página em preto e branco**, com grão de filme: fundo `#0b0b0a`, texto `#efede6`, cinza `#9a988f`, fios de 1 px.
+> - **A cor mora só na folha** da seção "Leitura": o marca-texto `#F2DC6B` e a tinta azul `#27456B`, sobre papel `#f1eee6`. Fora da folha não há cor (o marca-texto aparece ainda no resultado do prazo).
+> - **Tipografia:** Inter Tight 600 em caixa alta nos títulos, IBM Plex Mono nos rótulos, tabelas e botões, e Newsreader só no texto da folha.
+> - **Peças:** as duas áreas presas à rolagem (foto, número, título e tabela em mono) e a folha de um comunicado fictício que é grifada e anotada na margem até a explicação por escrito, com a rubrica.
+> - **Assinatura:** M1L! cromada, barra e RTJ no rodapé, com link para mileumalinhas.com.br.
+> - **Direção (unslop):** produto: advogada que atende sozinha e explica o caso; caráter: seca, exata, próxima; mundo: mesa de leitura à noite, papel e caneta; momento: a folha anotada; assinatura: o § dentro do círculo.
+> - **Estética de referência (CARI):** Vector Minimalism como guia de sobriedade; a marca manda.
+>
+> O texto abaixo descreve a identidade anterior e fica como histórico.
+
 Estudo curto feito antes do código. Tudo aqui é fictício: a advogada, o número da OAB, o endereço e o telefone.
 
 ## Nome e posicionamento

@@ -6,10 +6,11 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <title>Clara Montenegro, Advogada | Família e Consumidor em Cuiabá</title>
   <meta name="description" content="Advocacia autônoma em Cuiabá, direito de família e do consumidor. Faça uma triagem em 3 perguntas, calcule prazos em dias úteis e peça uma consulta inicial. Site de demonstração com dados fictícios.">
-  <meta name="theme-color" content="#F6F4EF">
+  <meta name="theme-color" content="#0b0b0a">
   <link rel="canonical" href="https://toshiro01001.github.io/advogado/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="preload" href="fonts/inter-tight-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/estilo.css?v=20261117a">
 </head>
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -19,8 +20,9 @@
   </p>
 
   <header class="topo">
-    <div class="miolo topo-linha">
+    <div class="topo-linha">
       <a class="marca" href="#inicio">
+        <span class="selo" aria-hidden="true"><i>§</i></span>
         <span class="marca-nome">Clara Montenegro</span>
         <span class="marca-sub">Advogada · OAB/MT 00.000 (fictício)</span>
       </a>
@@ -29,6 +31,7 @@
       </button>
       <nav id="menu" class="menu" aria-label="Seções do site">
         <a href="#areas">Áreas</a>
+        <a href="#leitura">Leitura</a>
         <a href="#triagem">Triagem</a>
         <a href="#consulta">Consulta</a>
         <a href="#prazos">Prazos</a>
@@ -42,53 +45,101 @@
 
     <!-- Abertura -->
     <section id="inicio" class="hero">
-      <div class="miolo hero-grade">
-        <div class="hero-texto">
-          <p class="hero-aba hero-anim"><span class="ponto-verde" aria-hidden="true"></span>Atendimento de segunda a sexta, 9h às 18h</p>
-          <p class="hero-chamada olho hero-anim">Direito de família e do consumidor, em Cuiabá.</p>
-          <h1>O seu caso <span class="grifo">explicado em português claro</span>, por quem vai cuidar dele pessoalmente.</h1>
-          <p class="hero-apoio hero-anim">Eu atendo sozinha. Quem lê os seus documentos, responde as suas mensagens e vai à audiência sou eu. A conversa começa com uma consulta inicial, sem compromisso de continuidade.</p>
-          <div class="hero-acoes hero-anim">
-            <a class="botao botao-anel" href="#consulta">Pedir uma consulta inicial</a>
-            <a class="botao botao-leve" href="#triagem">Entender meu caso em 3 perguntas</a>
-          </div>
+      <img class="hero-foto" src="img/pb-hero.webp" width="1920" height="1080" alt="Mesa vista de cima, em preto e branco, com folhas pautadas cheias de anotações, um trecho grifado e uma caneta-tinteiro sobre elas." fetchpriority="high" decoding="async">
+      <div class="hero-veu" aria-hidden="true"></div>
+      <div class="hero-lado" aria-hidden="true">
+        <span class="fiozinho"></span>
+        <p class="mono claro" data-embaralha>Família · Consumidor</p>
+        <p class="mono" data-embaralha>Cuiabá · presencial ou por vídeo</p>
+      </div>
+      <div class="hero-texto">
+        <h1 class="titulo"><span class="linha"><span><span class="selo" aria-hidden="true"><i>§</i></span> O seu caso explicado</span></span> <span class="linha"><span>em português claro</span></span></h1>
+        <p class="hero-apoio">Eu atendo sozinha. Quem lê os seus documentos, responde as suas mensagens e vai à audiência sou eu. A conversa começa com uma consulta inicial, sem compromisso de continuidade.</p>
+        <div class="hero-acoes">
+          <a class="botao botao-claro" href="#consulta">Pedir uma consulta inicial</a>
+          <a class="botao" href="#triagem">Entender meu caso em 3 perguntas</a>
         </div>
-
-        <div class="hero-figura hero-anim">
-          <img class="hero-foto" src="img/hero.webp" width="1440" height="1080" alt="Mesa vista de cima com folhas pautadas cheias de anotações e um trecho marcado em amarelo, uma caneta-tinteiro azul-marinho sobre elas, a tampa da caneta ao lado, óculos de armação escura, um marca-texto amarelo e um caderno de capa preta no canto." fetchpriority="high">
-        </div>
+      </div>
+      <div class="hero-pe">
+        <span class="fio" aria-hidden="true"></span>
+        <p class="mono"><b data-embaralha>Advogada autônoma</b><span data-embaralha>OAB/MT 00.000 (fictício)</span><span data-embaralha>Desde 2014</span><span data-embaralha>Seg. a sex., 9h às 18h</span><span class="role" aria-hidden="true">Role <i>↓</i></span></p>
       </div>
     </section>
 
-    <!-- Áreas -->
-    <section id="areas" class="secao">
-      <div class="miolo">
-        <h2>Em que eu <span class="h2-tom">posso ajudar</span></h2>
-        <p class="secao-intro">Duas áreas, escolhidas porque são as que mais mexem com a vida de uma família comum. Se o seu caso não estiver aqui, a triagem logo abaixo indica para onde ir.</p>
+    <!-- Áreas: os dossiês -->
+    <section id="areas" class="dossies" aria-labelledby="t-areas">
+      <h2 id="t-areas" class="so-leitor">Em que eu posso ajudar</h2>
+      <div class="dossies-palco">
+        <article class="dossie" data-area="0">
+          <img class="dossie-foto" src="img/pb-familia.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+          <div class="dossie-grade">
+            <div class="dossie-num"><span class="numero" aria-hidden="true">01</span><p class="mono">Área<br><b>Família</b></p></div>
+            <div class="dossie-meio">
+              <h3 class="titulo"><span class="linha"><span>Acordo quando dá,</span></span> <span class="linha"><span>processo quando precisa</span></span></h3>
+              <p>Divórcio e dissolução de união estável, guarda e convivência com os filhos, pensão alimentícia (fixar, revisar ou cobrar), reconhecimento de paternidade, inventário e partilha.</p>
+              <a class="botao" href="#triagem">Entender meu caso</a>
+            </div>
+            <dl class="tabela mono">
+              <div><dt>Inclui</dt><dd data-embaralha>Divórcio, guarda, pensão, inventário</dd></div>
+              <div><dt>Começo</dt><dd data-embaralha>Consulta inicial de uma hora</dd></div>
+              <div><dt>Atendimento</dt><dd data-embaralha>Presencial ou por vídeo</dd></div>
+              <div><dt>Honorários</dt><dd data-embaralha>Proposta por escrito, antes de começar</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="dossie" data-area="1">
+          <img class="dossie-foto" src="img/pb-consumidor.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async">
+          <div class="dossie-grade">
+            <div class="dossie-num"><span class="numero" aria-hidden="true">02</span><p class="mono">Área<br><b>Consumidor</b></p></div>
+            <div class="dossie-meio">
+              <h3 class="titulo"><span class="linha"><span>Primeiro a notificação,</span></span> <span class="linha"><span>depois o juizado</span></span></h3>
+              <p>Cobrança indevida, nome negativado sem aviso, produto ou serviço com defeito, cancelamento de contrato com cláusula abusiva, problema com banco ou financeira.</p>
+              <a class="botao" href="#triagem">Entender meu caso</a>
+            </div>
+            <dl class="tabela mono">
+              <div><dt>Inclui</dt><dd data-embaralha>Cobrança, negativação, defeito, contrato</dd></div>
+              <div><dt>Começo</dt><dd data-embaralha>Consulta inicial de uma hora</dd></div>
+              <div><dt>Atendimento</dt><dd data-embaralha>Presencial ou por vídeo</dd></div>
+              <div><dt>Honorários</dt><dd data-embaralha>Proposta por escrito, antes de começar</dd></div>
+            </dl>
+          </div>
+        </article>
+        <div class="dossies-trilho mono" aria-hidden="true"><button type="button" data-ir="0">01 Família</button><button type="button" data-ir="1">02 Consumidor</button><span class="dossies-barra"><i></i></span></div>
+      </div>
+    </section>
 
-        <div class="colunas">
-          <article class="coluna cartao">
-            <div class="coluna-cabeca">
-              <span class="numeral" aria-hidden="true">01</span>
-              <figure class="area-foto">
-                <img src="img/area-familia.webp" width="1024" height="1024" alt="Duas mãos adultas sobre uma mesa de madeira clara, uma delas segurando uma caneta azul sobre um documento com um trecho grifado em amarelo." loading="lazy" decoding="async">
-              </figure>
+    <!-- A leitura: o documento do cliente, grifado e anotado -->
+    <section id="leitura" class="leitura" aria-labelledby="t-leitura">
+      <div class="leitura-palco">
+        <div class="leitura-texto">
+          <p class="mono">Como eu trabalho</p>
+          <h2 id="t-leitura" class="titulo"><span class="linha"><span>O documento passa</span></span> <span class="linha"><span>por três leituras</span></span></h2>
+          <ol class="leitura-passos mono">
+            <li data-passo="1"><span>01 Você me envia o documento</span><span>Na consulta</span></li>
+            <li data-passo="2"><span>02 Eu leio e marco o que importa</span><span>Linha por linha</span></li>
+            <li data-passo="3"><span>03 Você recebe a explicação</span><span>Por escrito</span></li>
+          </ol>
+          <div class="leitura-frases" aria-live="off">
+            <p data-passo="1">Carta do banco, contrato, intimação: você me mostra o papel que chegou e me conta o que aconteceu.</p>
+            <p data-passo="2">Eu grifo os trechos que mudam alguma coisa para você e anoto na margem o que cada um quer dizer.</p>
+            <p data-passo="3">Você sai sabendo o que o documento diz, o que ele pede e quais são os caminhos. Só então decide.</p>
+          </div>
+        </div>
+        <div class="folha-area">
+          <div class="folha" aria-label="Exemplo de documento anotado (texto fictício)">
+            <p class="folha-cab"><span>Comunicado de débito</span><span class="mono" data-versao>Como chegou</span></p>
+            <p class="folha-clau">Ref.: contrato nº 0000 (exemplo)</p>
+            <div class="folha-par"><p>Prezado(a) cliente, consta em nossos registros pendência financeira vinculada ao contrato em referência. Solicitamos a regularização <mark data-passo="2">no prazo de 10 (dez) dias</mark>, contados do recebimento desta.</p><span class="nota-margem" data-passo="1">Que débito é esse? De quando?</span><span class="nota-margem n2" data-passo="2">Prazo da carta: 10 dias</span></div>
+            <div class="folha-par"><p>Decorrido o prazo sem manifestação, o débito poderá ser <mark data-passo="2">encaminhado aos órgãos de proteção ao crédito</mark>, sem prejuízo das demais medidas cabíveis.</p><span class="nota-margem" data-passo="2">Negativar exige aviso por escrito</span></div>
+            <p>Caso o pagamento já tenha sido efetuado, <mark data-passo="3">desconsidere este comunicado</mark>.</p>
+            <div class="folha-resumo" data-passo="3">
+              <p class="mono">Em português claro</p>
+              <p class="escrita">A empresa diz que existe uma dívida e dá dez dias. Antes de pagar, peça o detalhamento por escrito. Se já pagou, guarde o comprovante.</p>
+              <svg class="rubrica" viewBox="0 0 220 60" aria-hidden="true"><path d="M6 44c14-22 26-34 34-32 9 2-8 30-2 32 7 2 16-22 24-22 6 0-2 20 4 20 8 0 12-18 20-18 5 0 0 16 6 16 9 0 18-26 28-26 6 0-6 28 2 28 12 0 28-14 48-14 16 0 30 6 44 4"/></svg>
+              <p class="mono">Clara Montenegro · advogada</p>
             </div>
-            <h3>Família</h3>
-            <p>Divórcio e dissolução de união estável, guarda e convivência com os filhos, pensão alimentícia (fixar, revisar ou cobrar), reconhecimento de paternidade, inventário e partilha.</p>
-            <p>Quando dá para resolver em acordo, eu prefiro o acordo. Quando não dá, eu preparo o caso para o processo com você sabendo cada passo.</p>
-          </article>
-          <article class="coluna cartao">
-            <div class="coluna-cabeca">
-              <span class="numeral" aria-hidden="true">02</span>
-              <figure class="area-foto">
-                <img src="img/area-consumidor.webp" width="1024" height="1024" alt="Cupom fiscal e contrato com um parágrafo grifado em amarelo, uma lupa e uma caneta azul sobre papel marfim, vistos de cima." loading="lazy" decoding="async">
-              </figure>
-            </div>
-            <h3>Consumidor</h3>
-            <p>Cobrança indevida, nome negativado sem aviso, produto ou serviço com defeito, cancelamento que não acontece, plano de saúde que nega atendimento, contrato com cláusula abusiva, problema com banco ou financeira.</p>
-            <p>Muitos casos se resolvem com uma notificação bem escrita. Os que não se resolvem vão para o Juizado ou para a Justiça comum, conforme o valor e a complexidade.</p>
-          </article>
+          </div>
+          <p class="nota folha-aviso">Documento de exemplo, com texto fictício. Não é modelo nem orientação para um caso real.</p>
         </div>
       </div>
     </section>
@@ -165,7 +216,7 @@
 
             <div class="agenda-horarios">
               <figure class="agenda-foto">
-                <img src="img/sala-consulta.webp" width="1456" height="1088" alt="Sala de atendimento pequena com mesa de madeira clara, duas cadeiras, caderno preto, caneta azul e uma janela com cortina de linho." loading="lazy" decoding="async">
+                <img src="img/pb-sala.webp" width="1200" height="897" alt="Sala de atendimento pequena com mesa de madeira clara, duas cadeiras, caderno preto, caneta azul e uma janela com cortina de linho." loading="lazy" decoding="async">
               </figure>
               <p class="rotulo" id="horarios-rotulo">Horários para <span id="dia-escolhido">nenhum dia escolhido</span></p>
               <div id="horarios" class="horarios" role="group" aria-labelledby="horarios-rotulo">
@@ -261,7 +312,7 @@
           </div>
           </div>
           <figure class="prazo-foto">
-            <img src="img/agenda-prazos.webp" width="1456" height="970" alt="Agenda de papel aberta com dias em branco, um carimbo datador de metal e uma caneta azul sobre mesa cor de papel." loading="lazy" decoding="async">
+            <img src="img/pb-prazos.webp" width="1456" height="970" alt="Agenda de papel aberta com dias em branco, um carimbo datador de metal e uma caneta azul sobre mesa cor de papel." loading="lazy" decoding="async">
           </figure>
           </div>
         </form>
@@ -289,7 +340,7 @@
             <p id="busca-status" class="nota" aria-live="polite">8 artigos.</p>
           </div>
           <figure class="artigos-foto">
-            <img src="img/leitura-artigos.webp" width="1456" height="816" alt="Pilha de livros de capa dura em tons neutros, óculos de armação escura e um marca-texto amarelo sobre uma mesa de madeira clara." loading="lazy" decoding="async">
+            <img src="img/pb-artigos.webp" width="1456" height="816" alt="Pilha de livros de capa dura em tons neutros, óculos de armação escura e um marca-texto amarelo sobre uma mesa de madeira clara." loading="lazy" decoding="async">
           </figure>
         </div>
 
@@ -367,7 +418,7 @@
       <div class="miolo sobre-grade">
         <div class="vidro">
           <figure class="sobre-foto">
-            <img src="img/advogada-perfil.webp" width="1088" height="1456" alt="Advogada adulta vista de perfil e parcialmente de costas, lendo um processo junto à janela, com caneta azul na mão e o rosto fora de foco." loading="lazy" decoding="async">
+            <img src="img/pb-perfil.webp" width="897" height="1200" alt="Advogada adulta vista de perfil e parcialmente de costas, lendo um processo junto à janela, com caneta azul na mão e o rosto fora de foco." loading="lazy" decoding="async">
           </figure>
           <h2>Quem atende</h2>
           <p class="sobre-lead">Meu nome é Clara Montenegro. Sou advogada em Cuiabá desde 2014, formada pela UFMT, com especialização em direito das famílias. Antes de abrir o meu escritório, trabalhei quatro anos no atendimento de um Procon e três em um escritório de direito de família. Foi ali que decidi que queria atender poucas pessoas de cada vez, e atender bem.</p>
@@ -381,7 +432,7 @@
             <li><strong>Acompanhamento.</strong> A cada movimento do caso você recebe uma mensagem minha explicando o que aconteceu e o que vem depois. Sem juridiquês.</li>
           </ol>
           <figure class="endereco-foto">
-            <img src="img/porta-escritorio.webp" width="1456" height="1088" alt="Porta de escritório em madeira clara com placa de latão em branco, uma planta em vaso e piso de cimento queimado claro." loading="lazy" decoding="async">
+            <img src="img/pb-porta.webp" width="1456" height="1088" alt="Porta de escritório em madeira clara com placa de latão em branco, uma planta em vaso e piso de cimento queimado claro." loading="lazy" decoding="async">
           </figure>
           <address class="endereco">
             Rua das Figueiras, 120, sala 4, Bairro Goiabeiras, Cuiabá, MT (endereço fictício)<br>
@@ -389,6 +440,11 @@
             (65) 90000-0000 e contato@claramontenegro.exemplo (contatos fictícios)
           </address>
         </div>
+      </div>
+    <div class="fatos">
+        <div><p>Quem lê os seus documentos e vai à audiência é a mesma pessoa.</p><p class="fato"><b>1</b><span class="mono">Advogada do começo ao fim</span></p></div>
+        <div><p>Advogada em Cuiabá, formada pela UFMT.</p><p class="fato"><b>2014</b><span class="mono">Início da advocacia</span></p></div>
+        <div><p>Atendimento presencial ou por vídeo, com hora marcada.</p><p class="fato"><b>9h–18h</b><span class="mono">Segunda a sexta</span></p></div>
       </div>
     </section>
 
@@ -420,38 +476,31 @@
   </main>
 
   <footer class="rodape">
-    <div class="miolo">
-      <div class="rodape-linha vidro">
-        <div class="rodape-coluna">
-          <p class="rodape-marca">Clara Montenegro, Advogada</p>
-          <p>OAB/MT 00.000 · Cuiabá, MT</p>
-          <p>Pessoa, número e endereço fictícios.</p>
-        </div>
-        <div class="rodape-coluna">
-          <h4>Áreas</h4>
-          <ul>
-            <li><a href="#areas">Família</a></li>
-            <li><a href="#areas">Consumidor</a></li>
-            <li><a href="#triagem">Triagem em 3 perguntas</a></li>
-          </ul>
-        </div>
-        <div class="rodape-coluna">
-          <h4>Atalhos</h4>
-          <ul>
-            <li><a href="#consulta">Consulta inicial</a></li>
-            <li><a href="#prazos">Calcular prazo</a></li>
-            <li><a href="#artigos">Artigos</a></li>
-            <li><a href="#sobre">Quem atende</a></li>
-          </ul>
-        </div>
-        <div class="rodape-coluna">
-          <h4>Demonstração</h4>
-          <p>Site de demonstração feito pela <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a>. Nenhum dado é enviado ou armazenado fora do seu navegador.</p>
-        </div>
+    <div class="rodape-grade">
+      <div class="rodape-coluna">
+        <p class="rodape-marca"><span class="selo" aria-hidden="true"><i>§</i></span> Clara Montenegro</p>
+        <p class="mono">Atendimento</p>
+        <p>contato@claramontenegro.exemplo<br>Seg. a sex., 9h às 18h</p>
+        <a class="botao botao-claro" href="#consulta">Pedir uma consulta inicial</a>
+      </div>
+      <div class="rodape-coluna">
+        <p class="mono">Áreas</p>
+        <ul><li><a href="#areas">Família</a></li><li><a href="#areas">Consumidor</a></li><li><a href="#triagem">Triagem em 3 perguntas</a></li></ul>
+      </div>
+      <div class="rodape-coluna">
+        <p class="mono">Atalhos</p>
+        <ul><li><a href="#leitura">Como eu trabalho</a></li><li><a href="#prazos">Calcular prazo</a></li><li><a href="#artigos">Artigos</a></li><li><a href="#sobre">Quem atende</a></li></ul>
       </div>
     </div>
+    <p class="rodape-pe mono">Clara Montenegro, advogada · OAB/MT 00.000 · Cuiabá, MT · Pessoa, número e endereço fictícios · Demonstração da <a href="https://mileumalinhas.com.br" rel="noopener">Mil e Uma Linhas!</a>: nenhum dado é enviado ou guardado fora do seu navegador</p>
+    <a class="assinatura" href="https://mileumalinhas.com.br" rel="noopener" aria-label="Site feito pela Mil e Uma Linhas!, por RTJ">
+      <img src="img/marca/cromo-m1l.webp" width="1000" height="431" alt="M1L!" loading="lazy" decoding="async">
+      <span class="assinatura-barra" aria-hidden="true"></span>
+      <img src="img/marca/rtj.svg" width="76" height="46" alt="RTJ" loading="lazy" decoding="async">
+    </a>
   </footer>
 
-  <script src="js/app.js" defer></script>
+  <script src="js/app.js?v=20261117a" defer></script>
+  <script src="js/premium.js?v=20261117a" defer></script>
 </body>
 </html>

@@ -50,6 +50,22 @@ O estudo completo está em [`docs/identidade.md`](docs/identidade.md). O resumo:
 
 - **Ideia:** a mesa de trabalho de uma pessoa que lê e anota, não um escritório de mármore. Papel, caneta de tinta azul e um marca-texto amarelo.
 - **Paleta:** Papel `#F6F4EF` (fundo), Papel escuro `#ECE9E1` (blocos de apoio), Grafite `#1E2228` (texto), Tinta azul `#27456B` (tudo que é clicável), Marca-texto `#F2DC6B` (um grifo por tela, sempre atrás de texto), Linha `#CFCBC1` (bordas), Verde `#2F6B4F` (confirmação). Sem gradiente e sem sombra.
+### Criação premium de 17/11/2026
+
+Refiz o site a partir do modelo Cláusula, do ProfitizeBuild, adaptado para HTML, CSS e JavaScript puros (o modelo original usa GSAP e Lenis; aqui o movimento é meu, em `js/premium.js`). O que mudou:
+
+- **Preto e branco com grão de filme.** A cor ficou só na folha da seção "Leitura": o marca-texto amarelo e a tinta azul da identidade.
+- **Abertura** com a foto da mesa em tela cheia e o título em duas linhas.
+- **Áreas presas à rolagem:** Família e Consumidor trocam na mesma tela, com foto, número, título e uma tabela em letra de máquina que embaralha antes de assentar.
+- **Leitura:** um comunicado de débito fictício é grifado e anotado na margem em três passos, até a explicação "em português claro" e a rubrica. É a peça que mostra o serviço.
+- **Funções:** triagem, agenda, prazos e artigos continuam iguais por dentro, com formulários só de fios e rótulos.
+- **Fontes novas:** Inter Tight (títulos) e IBM Plex Mono (rótulos), SIL OFL, na pasta `fonts/`. Newsreader ficou só na folha.
+- **Fotos:** versões em preto e branco das que já existiam, em `img/pb-*.webp`.
+- **Assinatura M1L! | RTJ** no rodapé, com as marcas em `img/marca/`.
+- **Sem movimento:** com "reduzir movimento" ligado, nada fica preso nem anima, e a folha já aparece anotada.
+
+O texto abaixo descreve a versão anterior e fica como histórico.
+
 - **Fontes:** Newsreader (serifa de leitura, títulos) e Public Sans (sans clara, corpo e formulários). As duas são SIL OFL e estão na pasta `fonts/` com as licenças. Nenhuma fonte vem de fora.
 - **Imagem forte:** uma foto de uma mesa de trabalho vista de cima, com folhas anotadas, caneta-tinteiro azul, óculos e marca-texto (`img/hero.webp`). **A foto foi gerada por IA no Canva e é só ilustrativa**: a mesa e as anotações não existem. O texto das folhas está desfocado de propósito.
 - **Superfícies (leva final):** a página clara segue o padrão de cartões e pílulas com anel translúcido e sombra longa, olhos em serifa itálica, títulos com segundo tom e fundo com raios de luz e grão; Quem atende e o rodapé viram faixas em Tinta azul com cartões de vidro. A seção "Design systems aplicados (leva final)" de `docs/identidade.md` lista cada componente.
