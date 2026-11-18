@@ -225,7 +225,8 @@ async function testaFuncoes(page, rotulo, capturas, sufixo) {
       await page.goto(URL + "404.html", { waitUntil: "networkidle" });
       await verificacoesBasicas(page, c.nome + " (404)");
 
-      const errosReais = erros.filter((e) => !/404\.html|favicon/.test(e) || /pageerror/.test(e));
+      /* "GL Driver Message" é aviso do driver de vídeo da máquina de teste (WebGL por software), não do site. */
+      const errosReais = erros.filter((e) => (!/404\.html|favicon|GL Driver Message/.test(e)) || /pageerror/.test(e));
       checa(errosReais.length === 0, `${c.nome}: console: ${errosReais.join(" | ")}`);
       console.log(`${c.nome}: ok (console ${errosReais.length}, falhas até aqui ${falhas.length})`);
       await context.close();
